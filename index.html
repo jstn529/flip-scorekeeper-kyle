@@ -1,89 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KyleLittleForCongress Flip Scorekeeper</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyle Little For Congress - Flip Scorekeeper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="page-bg"></div>
 
-<header>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-block">
+        <div class="brand-kicker">COMMUNITY SCOREKEEPER</div>
+        <h1>KyleLittleForCongress Flip Scorekeeper</h1>
+        <p>
+          A clean online flip scoreboard for one match or multiple teams,
+          ready for GitHub and Vercel deployment.
+        </p>
+      </div>
 
-<h1>KyleLittleForCongress</h1>
-<p>Community Flip Scoreboard</p>
+      <div class="header-actions">
+        <button id="addBoardBtn" class="btn btn-primary">Add Team Board</button>
+        <button id="removeBoardBtn" class="btn btn-outline">Remove Team Board</button>
+        <button id="resetAllBtn" class="btn btn-danger">Reset All</button>
+      </div>
+    </div>
+  </header>
 
-</header>
+  <main class="main-shell">
+    <section class="toolbar-card">
+      <div class="toolbar-left">
+        <div class="toolbar-title">Board Controls</div>
+        <div class="toolbar-subtitle">
+          Use one board for a simple matchup or add up to three boards for multiple teams.
+        </div>
+      </div>
 
+      <div class="toolbar-right">
+        <div class="counter-pill">
+          Active Boards: <span id="boardCount">2</span>
+        </div>
+      </div>
+    </section>
 
-<div class="scoreboard">
+    <section id="boardsContainer" class="boards-grid"></section>
+  </main>
 
-<div class="team">
+  <template id="boardTemplate">
+    <article class="team-board">
+      <div class="team-board-top">
+        <input class="team-name-input" type="text" maxlength="24" value="Team" />
+      </div>
 
-<input id="leftName" value="Team A">
+      <div class="flip-score-card">
+        <div class="score-surface score-current">0</div>
 
-<div class="flip-container">
+        <div class="flip-half flip-top-static">0</div>
+        <div class="flip-half flip-bottom-static">0</div>
 
-<div class="card" id="leftCard">
+        <div class="flip-half flip-top-animate">0</div>
+        <div class="flip-half flip-bottom-animate">0</div>
 
-<div class="top">0</div>
-<div class="bottom">0</div>
+        <div class="score-divider"></div>
+      </div>
 
-</div>
+      <div class="board-controls">
+        <button class="btn btn-ghost minus-btn">-1</button>
+        <button class="btn btn-primary plus-btn">+1</button>
+      </div>
+    </article>
+  </template>
 
-</div>
-
-<div class="buttons">
-
-<button onclick="changeScore('left',1)">+</button>
-<button onclick="changeScore('left',-1)">-</button>
-
-</div>
-
-</div>
-
-
-
-<div class="team">
-
-<input id="rightName" value="Team B">
-
-<div class="flip-container">
-
-<div class="card" id="rightCard">
-
-<div class="top">0</div>
-<div class="bottom">0</div>
-
-</div>
-
-</div>
-
-<div class="buttons">
-
-<button onclick="changeScore('right',1)">+</button>
-<button onclick="changeScore('right',-1)">-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="controls">
-
-<button onclick="resetScore()">Reset</button>
-<button onclick="swap()">Swap</button>
-
-</div>
-
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
