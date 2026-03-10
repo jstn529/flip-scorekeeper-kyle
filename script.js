@@ -11,8 +11,8 @@ const removeBoardBtn = document.getElementById("removeBoardBtn");
 const resetAllBtn = document.getElementById("resetAllBtn");
 
 let boards = [
-  { id: createId(), name: "Team A", score: 0 },
-  { id: createId(), name: "Team B", score: 0 }
+  { id: createId(), name: "Team 1", score: 0 },
+  { id: createId(), name: "Team 2", score: 0 }
 ];
 
 function createId() {
